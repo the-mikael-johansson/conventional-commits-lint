@@ -1,0 +1,16 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+	<title>Conventional Commits Lint</title>
+	<defs>
+		<image  width="1280" height="720" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABQAAAALQAQMAAAD1s08VAAAAAXNSR0IB2cksfwAAAANQTFRF////p8QbyAAAAIdJREFUeJztwTEBAAAAwqD1T20JT6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeBrE3wABB8CymgAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+		tspan { white-space:pre } 
+		.t0 { font-size: 70px;fill: #000000;font-weight: 700;font-family: "DejaVuSans-Bold", "DejaVu Sans" } 
+		.t1 { font-size: 70px;fill: #fe5196;font-weight: 700;font-family: "DejaVuSans-Bold", "DejaVu Sans" } 
+	</style>
+	<use id="Background" href="#img1" x="0" y="0"/>
+	<text id="Conventional Commits Lint" style="transform: matrix(1,0,0,1,639.782,373)" >
+		<tspan x="-532" y="0" class="t0">C</tspan><tspan  y="0" class="t0">o</tspan><tspan  y="0" class="t0">n</tspan><tspan  y="0" class="t0">v</tspan><tspan  y="0" class="t0">e</tspan><tspan  y="0" class="t0">n</tspan><tspan  y="0" class="t0">t</tspan><tspan  y="0" class="t0">i</tspan><tspan  y="0" class="t0">o</tspan><tspan  y="0" class="t0">n</tspan><tspan  y="0" class="t0">a</tspan><tspan  y="0" class="t0">l</tspan><tspan  y="0" class="t0"> </tspan><tspan  y="0" class="t0">C</tspan><tspan  y="0" class="t0">o</tspan><tspan  y="0" class="t0">m</tspan><tspan  y="0" class="t0">m</tspan><tspan  y="0" class="t0">i</tspan><tspan  y="0" class="t0">t</tspan><tspan  y="0" class="t0">s</tspan><tspan  y="0" class="t0"> </tspan><tspan  y="0" class="t1">L</tspan><tspan  y="0" class="t1">i</tspan><tspan  y="0" class="t1">n</tspan><tspan  y="0" class="t1">t
+</tspan>
+	</text>
+</svg>
