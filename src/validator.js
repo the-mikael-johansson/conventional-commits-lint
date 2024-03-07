@@ -14,9 +14,15 @@ const executeCallback = (error, stdout, stderr) => {
 
     const lastCommitMessage = stdout.trim();
 
-    const firstLine = getFirstLine(lastCommitMessage);
-
     console.log(`Evaluating commit "${lastCommitMessage}"`);
+
+    validate(lastCommitMessage);
+};
+
+exports.executeCallback = executeCallback;
+
+const validate = (commitMessage) => {
+    const firstLine = getFirstLine(commitMessage);
 
     let errors = [];
     if (!hasCorrectType(firstLine)) {
@@ -40,11 +46,11 @@ const executeCallback = (error, stdout, stderr) => {
     }
 
     if (errors.length > 0) {
-        console.error(colors.red + '[FAILED]' + colors.reset +' The last commit message does not follow the Conventional Commits style.');
+        console.error(colors.red + '[FAILED]' + colors.reset + ' The last commit message does not follow the Conventional Commits style.');
         console.error(errors.join('\n'));
         process.exit(1);
     }
 
-    console.log(colors.green + '[OK]' + colors.reset +' The last commit message follows the Conventional Commits style.');
-};
-exports.executeCallback = executeCallback;
+    console.log(colors.green + '[OK]' + colors.reset + ' The last commit message follows the Conventional Commits style.');
+}
+exports.validate = validate;
