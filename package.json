@@ -1,6 +1,6 @@
 {
   "name": "conventional-commits-lint",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "Check if the last Git commit message follows the Conventional Commits style",
   "bin": {
     "conventional-commits-lint": "./src/index.js"

@@ -46,7 +46,8 @@ const validate = (commitMessage) => {
     }
 
     if (errors.length > 0) {
-        console.error(colors.red + '[FAILED]' + colors.reset + ' The last commit message does not follow the Conventional Commits style.');
+        console.error(colors.red + '[FAILED]' + colors.reset + ' The last commit message "'
+            + commitMessage + '" does not follow the Conventional Commits style.');
         console.error(errors.join('\n'));
         process.exit(1);
     }

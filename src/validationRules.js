@@ -30,6 +30,10 @@ exports.isLeadingLowerCase = isLeadingLowerCase;
  * @param {string} commitSubject
  */
 function firstVerbIsInTheImperativeMood(commitSubject) {
+    if (commitSubject.split(' ').length < 2) {
+        return false;
+    }
+
     const secondWord = commitSubject.split(' ')[1];
     const verb = secondWord.replace(/[^a-zA-Z]/g, '');
     const hasWrongEnding = verb.endsWith('ed') || verb.endsWith('ing') || verb.endsWith('s');
@@ -41,6 +45,9 @@ exports.firstVerbIsInTheImperativeMood = firstVerbIsInTheImperativeMood;
  * @param {string} commitSubject
  */
 function firstVerbIsInLowerCase(commitSubject) {
+    if (commitSubject.split(' ').length < 2) {
+        return false;
+    }
     const secondWord = commitSubject.split(' ')[1];
     const verb = secondWord.replace(/[^a-zA-Z]/g, '');
     const secondWordStartsWithLowerCase = verb[0].toLowerCase() === verb[0];

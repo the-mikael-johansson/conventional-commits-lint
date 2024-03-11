@@ -45,18 +45,43 @@ Evaluating commit "Added search button"
 
 
 ### Use in Azure DevOps YAML pipeline
+
+Example of validing the newest commit message (can be modified to validate all commits).
+
 ```yaml
 steps:
-- task: NodeTool@0
-  displayName: Setup Node
-  inputs:
-    versionSpec: '20.x'
+  - task: NodeTool@0
+    displayName: Setup Node
+    inputs:
+      versionSpec: '20.x'
 
-- script: npm install -g conventional-commits-lint
-  displayName: 'Install conventional-commits-lint'
+  - task: PowerShell@2
+    displayName: Lint git commit subject
+    inputs:
+      targetType: inline
+      script: |
+        # Fetch the source branch commit(s) using Azure DevOps REST API
+        # Create a Personal Access Token (PAT) following this guide (set Build (read), Code (Read)),
+        # https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=Windows
 
-- script: conventional-commits-lint
-  displayName: 'Lint last commit message'
+        $organization = "YourOrganization"
+        $project = "YourProject"
+        $repositoryId = "YourRepository"
+        $pullRequestId = $(System.PullRequest.PullRequestId)
+        $pat = "$(PAT_VARIABLE_IN_DEVOPS)"
+        $url = "https://dev.azure.com/$organization/_apis/git/repositories/$project/pullRequests/$pullRequestId/commits?api-version=7.1-preview.1"
+
+        $response = Invoke-RestMethod -Uri $url -Headers @{Authorization = "Basic " + [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes(":$pat"))}
+
+        if ($response.value.Count -gt 0) {
+          $firstComment = $response.value[0].comment
+
+          # Install conventional-coomits-lint and pass the subject as an argument
+          npm install -g conventional-commits-lint
+          conventional-commits-lint -s $firstComment
+        } else {
+            Write-Host "No commits found for pull request $pullRequestId"
+        }
 ```
 
 # Features
